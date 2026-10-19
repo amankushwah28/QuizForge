@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>QuizForge | Choose Quiz</title>
+
+    <link rel="stylesheet" href="CSS/style.css">
+
+</head>
+
+<body class="quiz-selection-page">
+
+<main class="quiz-selection-wrapper">
+
+<section class="quiz-selection-card">
+
+    <div class="quiz-selection-header">
+
+        <span class="dashboard-badge">
+            QUIZFORGE
+        </span>
+
+        <h1>Build Your Quiz</h1>
+
+        <p>
+            Customize your challenge and test your knowledge.
+        </p>
+
+    </div>
+
+
+    <div class="quiz-preview-banner">
+
+        <div class="preview-icon">
+            🎯
+        </div>
+
+        <div>
+
+            <strong>
+                Your quiz. Your challenge.
+            </strong>
+
+            <span>
+                Choose what you want to practice.
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="quiz-form">
+
+        <div class="quiz-field">
+
+            <label for="subject">
+                Subject
+            </label>
+
+            <div class="select-wrapper">
+
+                <select id="subject">
+
+                    <option value="Java">Java</option>
+                    <option value="HTML">HTML</option>
+                    <option value="CSS">CSS</option>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="MySQL">MySQL</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <div class="quiz-field">
+
+            <label for="difficulty">
+                Difficulty
+            </label>
+
+            <div class="select-wrapper">
+
+                <select id="difficulty">
+
+                    <option value="Easy">Easy</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Hard">Hard</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <div class="quiz-field">
+
+            <label>
+                Number of Questions
+            </label>
+
+            <div class="question-count-grid">
+
+                <button
+                    type="button"
+                    class="count-option active"
+                    onclick="selectQuestionCount(5, this)">
+                    5
+                </button>
+
+                <button
+                    type="button"
+                    class="count-option"
+                    onclick="selectQuestionCount(10, this)">
+                    10
+                </button>
+
+                <button
+                    type="button"
+                    class="count-option"
+                    onclick="selectQuestionCount(15, this)">
+                    15
+                </button>
+
+                <button
+                    type="button"
+                    class="count-option"
+                    onclick="selectQuestionCount(20, this)">
+                    20
+                </button>
+
+            </div>
+
+            <select id="questions"
+                    class="hidden-question-select">
+
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+
+            </select>
+
+        </div>
+
+
+        <button
+            type="button"
+            class="quiz-start-button"
+            onclick="startQuiz()">
+
+            <span>Start Quiz</span>
+
+            <span class="start-arrow">→</span>
+
+        </button>
+
+
+        <button
+            type="button"
+            class="quiz-back-button"
+            onclick="window.location.href='dashboard.html'">
+
+            ← Back to Dashboard
+
+        </button>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<script>
+
+function selectQuestionCount(number, button) {
+
+    document.getElementById("questions").value = number;
+
+    document.querySelectorAll(".count-option")
+        .forEach(function(btn) {
+            btn.classList.remove("active");
+        });
+
+    button.classList.add("active");
+}
+
+
+function startQuiz() {
+
+    const subject =
+        document.getElementById("subject").value;
+
+    const difficulty =
+        document.getElementById("difficulty").value;
+
+    const questions =
+        document.getElementById("questions").value;
+
+    const quizUrl =
+        "/quizforge-backend-1.0-SNAPSHOT/quiz"
+        + "?subject="
+        + encodeURIComponent(subject)
+        + "&difficulty="
+        + encodeURIComponent(difficulty)
+        + "&number="
+        + questions;
+
+    window.location.href = quizUrl;
+}
+
+</script>
+
+</body>
+
+</html>
