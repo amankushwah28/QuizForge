@@ -25,3 +25,4 @@ config-local.properties
 .DS_Store
 Thumbs.db
 desktop.ini
+/backend/quizforge-backend/target/
