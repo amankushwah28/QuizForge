@@ -56,30 +56,29 @@ QuizForge/
 1. Clone the repository:
 
    ```bash
-   git clone YOUR_GITHUB_REPOSITORY_URL
+   git clone https://github.com/amankushwah28/QuizForge.git
    ```
 
 2. Open the backend project directory:
 
    ```bash
-   cd backend/quizforge-backend
+   cd QuizForge/backend/quizforge-backend
    ```
 
 3. Configure the MySQL connection using your local database settings. Keep database passwords and other secrets out of source control.
 
 4. Build the application:
 
-   ```bash
+   bash
    mvn clean package
-   ```
+   
 
 5. Deploy the generated WAR file from the `target` directory to your Tomcat `webapps` directory.
 
 6. Start Tomcat and open:
 
-   ```text
    http://localhost:8080/quizforge-backend-1.0-SNAPSHOT/dashboard.html
-   ```
+   
 
    If the deployed WAR filename or context path differs, update the URL accordingly.
 
