@@ -1,3 +1,4 @@
+
 # Java and Maven
 target/
 *.class
@@ -21,8 +22,13 @@ logs/
 application-local.properties
 config-local.properties
 
+# Database backups
+docker/mysql/init/*.sql
+
 # Operating system files
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Maven build output
 /backend/quizforge-backend/target/
